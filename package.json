@@ -1,0 +1,26 @@
+{
+  "name": "gogreen",
+  "version": "1.0.0",
+  "metadata": {
+    "stack": [
+      "css",
+      "html",
+      "js"
+    ],
+    "thumbnailUrl": "https://raw.githubusercontent.com/riandeoliveira/gogreen/refs/heads/main/.github/assets/thumbnail.png",
+    "repositoryUrl": "https://github.com/riandeoliveira/gogreen",
+    "projectUrl": "https://ods-13-website.vercel.app/",
+    "isPrivate": false,
+    "isNew": false,
+    "info": {
+      "enUs": {
+        "fullName": "GoGreen",
+        "description": "A landing page developed for raising awareness about climate change and the 13th United Nations Sustainable Development Goal."
+      },
+      "ptBr": {
+        "fullName": "GoGreen",
+        "description": "Landing page desenvolvida para a conscientização sobre as mudanças climáticas e o 13º Objetivo de Desenvolvimento Sustentável da ONU."
+      }
+    }
+  }
+}
