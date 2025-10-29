@@ -1,0 +1,27 @@
+# .github/workflows/create-release.yml
+
+name: Criar Release da Tag
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  create-release:
+    name: Criar Release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Criar Release no GitHub
+        uses: softprops/action-gh-release@v1
+        with:
+          name: "Release ${{ github.ref_name }}"
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
