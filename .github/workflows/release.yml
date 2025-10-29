@@ -14,13 +14,15 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - name: Get current version
-        id: get_version
+      - name: Get latest Git tag
+        id: get_tag
         run: |
-          VERSION=$(jq -r .version package.json)
-          echo "VERSION=${VERSION}" >> $GITHUB_ENV
+          TAG=$(git describe --tags --abbrev=0)
+          echo "VERSION=${TAG}" >> $GITHUB_ENV
 
       - name: Get current date
         id: get_date
@@ -28,11 +30,10 @@ jobs:
           DATE=$(date +"%B, %d, %Y")
           echo "DATE=${DATE}" >> $GITHUB_ENV
 
-      - name: Create Release
-        id: create_release
+      - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: v${{ env.VERSION }}
-          name: v${{ env.VERSION }} (${{ env.DATE }})
+          tag_name: ${{ env.VERSION }}
+          name: ${{ env.VERSION }} (${{ env.DATE }})
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
